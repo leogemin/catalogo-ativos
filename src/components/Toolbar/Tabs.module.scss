@@ -1,0 +1,23 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 13px;
+  flex-wrap: wrap;
+
+  &__tab {
+    border: 1px solid var(--linea);
+    background: #fff;
+    color: var(--azul-profundo);
+    border-radius: 10px;
+    padding: 9px 13px;
+    font-weight: 700;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  &__tab--active {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: #fff;
+  }
+}

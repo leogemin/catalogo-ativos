@@ -1,0 +1,18 @@
+@use '../../styles/breakpoints' as bp;
+
+.toolbar {
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 7px 22px rgba(28, 65, 80, 0.06);
+  position: static;
+
+  @include bp.from-md {
+    border-radius: 18px;
+    padding: 16px;
+    position: sticky;
+    top: 106px;
+    z-index: 15;
+  }
+}

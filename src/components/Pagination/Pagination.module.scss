@@ -1,0 +1,50 @@
+@use '../../styles/breakpoints' as bp;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 18px 0 6px;
+  flex-wrap: wrap;
+
+  @include bp.from-md {
+    gap: 7px;
+    margin: 20px 0 6px;
+  }
+
+  &__btn {
+    border: 1px solid var(--linea);
+    background: #fff;
+    color: var(--azul-profundo);
+    border-radius: 9px;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    font-weight: 700;
+    font-size: 13px;
+
+    @include bp.from-md {
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      font-size: 14px;
+    }
+
+    &:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+  }
+
+  &__btn--active {
+    background: var(--oro);
+    border-color: var(--oro);
+    color: #fff;
+  }
+
+  &__ellipsis {
+    color: var(--muted);
+    padding: 0 2px;
+  }
+}

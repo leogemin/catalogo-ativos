@@ -1,0 +1,101 @@
+{
+  "app": {
+    "title": "Catálogo Mestre de Ativos",
+    "subtitle": "Consulta visual para inventário, classificação e identificação física",
+    "badge": "Ciclo Consultoria · Parceria de Verdade"
+  },
+  "hero": {
+    "eyebrow": "Ferramenta de consulta",
+    "title": "Encontre a espécie correta em segundos.",
+    "description": "Busque por nome, navegue por categoria ou filtre por critério de fixação da placa. Clique em qualquer espécie para ver sua ficha completa."
+  },
+  "stats": {
+    "assets": "Espécies de ativos",
+    "categories": "Categorias",
+    "fixations": "Critérios de fixação",
+    "nonObject": "Bens não objeto"
+  },
+  "tabs": {
+    "assets": "Catálogo de ativos",
+    "nonObject": "Bem não objeto"
+  },
+  "filters": {
+    "searchPlaceholder": "Buscar espécie, categoria, suplemento ou fixação...",
+    "searchNonPlaceholder": "Buscar bem não objeto...",
+    "allCategories": "Todas as categorias",
+    "allFixations": "Toda fixação de placa",
+    "clear": "Limpar filtros",
+    "clearSearch": "Limpar busca"
+  },
+  "alphabet": {
+    "all": "Todos"
+  },
+  "results": {
+    "assetsFound_one": "espécie encontrada",
+    "assetsFound_other": "espécies encontradas",
+    "nonObjectFound_one": "bem não objeto encontrado",
+    "nonObjectFound_other": "bens não objeto encontrados",
+    "emptyAssets": "Nenhuma espécie encontrada com os filtros selecionados.",
+    "emptyNonObject": "Nenhum bem encontrado com a busca selecionada."
+  },
+  "view": {
+    "grid": "Cartões",
+    "list": "Lista"
+  },
+  "card": {
+    "supplements": "Suplementos",
+    "fixation": "Placa"
+  },
+  "list": {
+    "headerSpecies": "Espécie",
+    "headerCategory": "Categoria",
+    "headerSupplements": "Suplementos",
+    "headerFixation": "Fixação de placa"
+  },
+  "modal": {
+    "supplementsTitle": "Outros suplementos / dados a capturar",
+    "fixationTitle": "Fixação da placa",
+    "close": "Fechar"
+  },
+  "actions": {
+    "addAsset": "Novo ativo",
+    "editAsset": "Editar"
+  },
+  "form": {
+    "addTitle": "Novo ativo",
+    "editTitle": "Editar ativo",
+    "fieldSpecies": "Espécie",
+    "fieldSpeciesPlaceholder": "Ex. Abridor de malhas",
+    "fieldCategory": "Categoria",
+    "fieldCategoryPlaceholder": "Selecione ou digite uma categoria",
+    "fieldFixation": "Fixação da placa",
+    "fieldFixationPlaceholder": "Selecione ou digite um critério",
+    "fieldSupplements": "Suplementos / dados a capturar",
+    "fieldSupplementsPlaceholder": "MCA/MOD/POTÊNCIA (COLOCAR A UNIDADE)",
+    "fieldSupplementsHint": "Separe cada dado com \"/\".",
+    "cancel": "Cancelar",
+    "submitCreate": "Criar ativo",
+    "submitEdit": "Salvar alterações",
+    "submitting": "Salvando...",
+    "requiredField": "Este campo é obrigatório.",
+    "persistenceNotice": "As alterações valem só para esta sessão: ainda não há um backend conectado para salvá-las de forma permanente.",
+    "genericError": "Não foi possível salvar o ativo. Tente novamente."
+  },
+  "pagination": {
+    "previous": "Página anterior",
+    "next": "Próxima página"
+  },
+  "footer": {
+    "source": "Base integrada a partir do catálogo fornecido pela Ciclo Consultoria.",
+    "offline": "Consulta local · funciona sem conexão à internet"
+  },
+  "language": {
+    "label": "Idioma",
+    "es": "Espanhol",
+    "pt": "Português"
+  },
+  "status": {
+    "loading": "Carregando catálogo...",
+    "error": "Não foi possível carregar o catálogo. Tente novamente."
+  }
+}

@@ -1,0 +1,126 @@
+@use '../../styles/breakpoints' as bp;
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 14px;
+
+  @include bp.from-md {
+    grid-template-columns: minmax(0, 1fr) 370px;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  @include bp.from-lg {
+    grid-template-columns: minmax(0, 1fr) 430px;
+  }
+
+  &__main {
+    background: linear-gradient(135deg, var(--azul-profundo), var(--azul));
+    color: white;
+    border-radius: 18px;
+    padding: 20px 20px;
+    box-shadow: var(--sombra);
+    position: relative;
+    overflow: hidden;
+
+    @include bp.from-md {
+      border-radius: 20px;
+      padding: 26px 28px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      right: -70px;
+      top: -85px;
+      border: 38px solid rgba(184, 145, 54, 0.25);
+    }
+  }
+
+  &__eyebrow {
+    color: #e6d49c;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    @include bp.from-md {
+      font-size: 12px;
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    margin: 8px 0 8px;
+    max-width: 720px;
+    line-height: 1.16;
+
+    @include bp.from-md {
+      font-size: 30px;
+      line-height: 1.12;
+    }
+  }
+
+  &__description {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+    color: #e7eff2;
+    max-width: 800px;
+
+    @include bp.from-md {
+      font-size: 14px;
+    }
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  @include bp.from-md {
+    gap: 12px;
+  }
+
+  &__item {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 14px;
+    padding: 13px 14px;
+    box-shadow: 0 7px 22px rgba(28, 65, 80, 0.06);
+
+    @include bp.from-md {
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+  }
+
+  &__number {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--azul-profundo);
+    line-height: 1;
+
+    @include bp.from-md {
+      font-size: 27px;
+    }
+  }
+
+  &__label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+
+    @include bp.from-md {
+      font-size: 12px;
+      margin-top: 7px;
+    }
+  }
+}

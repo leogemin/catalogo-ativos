@@ -1,0 +1,37 @@
+// Breakpoints mobile-first: estilos base = telefone; os mixins adicionam
+// regras a partir da largura mínima indicada (min-width).
+$bp-xs: 480px; // telefones grandes
+$bp-sm: 640px; // phablets
+$bp-md: 900px; // tablets / ponto em que topbar e toolbar viram sticky
+$bp-lg: 1200px; // desktop pequeno
+$bp-xl: 1500px; // desktop grande (largura máxima do container)
+
+@mixin from-xs {
+  @media (min-width: $bp-xs) {
+    @content;
+  }
+}
+
+@mixin from-sm {
+  @media (min-width: $bp-sm) {
+    @content;
+  }
+}
+
+@mixin from-md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin from-lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin from-xl {
+  @media (min-width: $bp-xl) {
+    @content;
+  }
+}

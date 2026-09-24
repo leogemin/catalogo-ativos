@@ -1,0 +1,52 @@
+@use './tokens';
+@use './breakpoints';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: Inter, 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+mark {
+  background: #f4df9a;
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+.shell {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 14px;
+
+  @include breakpoints.from-md {
+    padding: 22px 26px 34px;
+  }
+}

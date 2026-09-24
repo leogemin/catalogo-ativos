@@ -1,0 +1,145 @@
+@use '../../styles/breakpoints' as bp;
+
+.asset-form {
+  &__title {
+    margin: 0;
+    font-size: 19px;
+    color: #fff;
+
+    @include bp.from-md {
+      font-size: 23px;
+    }
+  }
+
+  display: grid;
+  gap: 14px;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+
+    @include bp.from-sm {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__field {
+    display: grid;
+    gap: 6px;
+
+    label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #cfdcdf;
+      border-radius: 11px;
+      background: #fbfcfc;
+      color: var(--texto);
+      padding: 10px 12px;
+      font-size: 14px;
+      outline: none;
+      font-family: inherit;
+
+      &:focus {
+        border-color: var(--azul);
+        box-shadow: 0 0 0 3px rgba(53, 101, 121, 0.12);
+      }
+
+      &[aria-invalid='true'] {
+        border-color: #c14343;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 76px;
+    }
+  }
+
+  &__hint {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  &__error {
+    font-size: 11px;
+    color: #c14343;
+    font-weight: 700;
+  }
+
+  &__submit-error {
+    background: #fdecec;
+    border: 1px solid #f3c9c9;
+    color: #92312f;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  &__notice {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--muted);
+    background: #f4f7f8;
+    border: 1px dashed var(--linea);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+
+    @include bp.from-sm {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__cancel {
+    height: 44px;
+    border: 1px solid var(--linea);
+    border-radius: 11px;
+    background: #fff;
+    color: var(--azul-profundo);
+    font-weight: 700;
+    padding: 0 18px;
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+
+  &__submit {
+    height: 44px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--azul);
+    color: #fff;
+    font-weight: 700;
+    padding: 0 22px;
+
+    &:hover:not(:disabled) {
+      background: var(--azul-oscuro);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+  }
+}

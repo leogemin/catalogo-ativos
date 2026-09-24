@@ -1,0 +1,19 @@
+@use '../styles/breakpoints' as bp;
+
+.footer {
+  margin-top: 22px;
+  padding: 14px 2px;
+  color: #84939a;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @include bp.from-sm {
+    margin-top: 26px;
+    padding: 16px 2px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}

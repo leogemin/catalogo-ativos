@@ -1,0 +1,31 @@
+.alphabet-nav {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #eef2f3;
+
+  &__letter {
+    min-width: 27px;
+    height: 27px;
+    border: 1px solid var(--linea);
+    background: #fff;
+    border-radius: 8px;
+    color: #536a74;
+    font-weight: 700;
+    font-size: 12px;
+
+    &:hover {
+      background: var(--oro);
+      border-color: var(--oro);
+      color: #fff;
+    }
+  }
+
+  &__letter--active {
+    background: var(--oro);
+    border-color: var(--oro);
+    color: #fff;
+  }
+}

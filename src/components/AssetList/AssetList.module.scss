@@ -1,0 +1,67 @@
+@use '../../styles/breakpoints' as bp;
+
+.asset-list {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 15px;
+  overflow: hidden;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 10px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf1f2;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+
+    @include bp.from-md {
+      grid-template-columns: 2fr 1.1fr 1.7fr 1.35fr;
+      gap: 14px;
+      padding: 13px 16px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    & > * {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    & > *:nth-child(n + 3) {
+      display: none;
+
+      @include bp.from-md {
+        display: block;
+      }
+    }
+  }
+
+  &__row--body:hover {
+    background: #f8fafb;
+  }
+
+  &__row--head {
+    background: #edf3f5;
+    color: #536a74;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: default;
+  }
+
+  &__name {
+    font-weight: 750;
+    color: var(--azul-profundo);
+  }
+}

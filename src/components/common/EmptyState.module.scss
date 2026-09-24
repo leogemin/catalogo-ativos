@@ -1,0 +1,14 @@
+@use '../../styles/breakpoints' as bp;
+
+.empty-state {
+  background: #fff;
+  border: 1px dashed #cbd9dd;
+  border-radius: 15px;
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--muted);
+
+  @include bp.from-md {
+    padding: 46px;
+  }
+}

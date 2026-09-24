@@ -1,0 +1,76 @@
+@use '../../styles/breakpoints' as bp;
+
+.asset-detail {
+  &__category {
+    font-size: 11px;
+    color: #e7d79f;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__name {
+    margin: 6px 0 0;
+    font-size: 19px;
+    color: #fff;
+
+    @include bp.from-md {
+      font-size: 23px;
+    }
+  }
+
+  &__details {
+    display: grid;
+    gap: 12px;
+
+    @include bp.from-md {
+      gap: 14px;
+    }
+  }
+
+  &__edit {
+    margin-top: 16px;
+    width: 100%;
+    height: 44px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--azul);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+
+    @include bp.from-sm {
+      width: auto;
+      padding: 0 22px;
+    }
+
+    &:hover {
+      background: var(--azul-oscuro);
+    }
+  }
+}
+
+.detail {
+  border: 1px solid var(--linea);
+  border-radius: 13px;
+  padding: 12px 14px;
+
+  @include bp.from-md {
+    padding: 14px 16px;
+  }
+
+  &__key {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 5px;
+  }
+
+  &__value {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto);
+  }
+}

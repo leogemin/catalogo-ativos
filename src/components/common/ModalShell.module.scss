@@ -1,0 +1,71 @@
+@use '../../styles/breakpoints' as bp;
+
+.modal-shell {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 31, 39, 0.58);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+
+  @include bp.from-md {
+    padding: 20px;
+  }
+
+  &__box {
+    background: #fff;
+    width: min(760px, 96vw);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+
+    @include bp.from-md {
+      border-radius: 20px;
+    }
+  }
+
+  &__head {
+    background: linear-gradient(135deg, var(--azul-profundo), var(--azul));
+    color: #fff;
+    padding: 18px 18px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    @include bp.from-md {
+      padding: 22px 24px;
+      gap: 16px;
+    }
+  }
+
+  &__close {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 20px;
+    flex-shrink: 0;
+
+    @include bp.from-md {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  &__body {
+    padding: 18px 18px 20px;
+    overflow-y: auto;
+
+    @include bp.from-md {
+      padding: 22px 24px 25px;
+    }
+  }
+}
