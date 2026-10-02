@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: catalogo-ativos-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: catalogo
+      POSTGRES_PASSWORD: catalogo
+      POSTGRES_DB: catalogo_ativos
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # Cria o banco usado por `npm run test:e2e`.
+      - ./docker/postgres-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U catalogo -d catalogo_ativos']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  postgres-data:

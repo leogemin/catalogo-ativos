@@ -1,0 +1,10 @@
+.catalog-page {
+  &__results {
+    transition: opacity 0.15s ease;
+  }
+
+  // Enquanto uma nova página/filtro carrega, mantém o resultado anterior esmaecido.
+  &__results--refreshing {
+    opacity: 0.55;
+  }
+}

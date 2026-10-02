@@ -1,0 +1,44 @@
+@use '../../styles/breakpoints' as bp;
+
+.catalog-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+
+  &__label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: none;
+
+    @include bp.from-md {
+      display: inline;
+    }
+  }
+
+  &__select {
+    height: 36px;
+    max-width: 180px;
+    border: 1px solid #cfdcdf;
+    border-radius: 10px;
+    background: #fbfcfc;
+    color: var(--azul-profundo);
+    padding: 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    outline: none;
+    text-overflow: ellipsis;
+
+    @include bp.from-lg {
+      max-width: 260px;
+    }
+
+    &:focus {
+      border-color: var(--azul);
+      box-shadow: 0 0 0 3px rgba(53, 101, 121, 0.12);
+    }
+  }
+}
