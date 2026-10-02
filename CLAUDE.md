@@ -1,5 +1,11 @@
 # Catálogo de Activos — Ciclo Consultoría
 
+> **Estructura del repositorio (monorepo):** `frontend/` (app React, ver
+> `frontend/README.md`), `backend/` (API NestJS + TypeORM + PostgreSQL, ver
+> `backend/README.md`), `reference/legacy-prototype.html` (prototipo original
+> descrito abajo) y `docker-compose.yml` (PostgreSQL local). En el backend, los
+> ítems tienen `type` `ASSET` | `NON_OBJECT` y el "—" del dataset se guarda como `NULL`.
+
 Este documento captura todo el contexto de diseño y funcionalidad del prototipo
 `index.html` (HTML/CSS/JS puro, sin build, sin dependencias externas) para
 servir de referencia al reimplementar la herramienta como una app React.
