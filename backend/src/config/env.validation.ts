@@ -1,5 +1,5 @@
 import { plainToInstance, Transform } from 'class-transformer';
-import { IsBoolean, IsInt, IsNotEmpty, IsOptional, IsString, Max, Min, validateSync } from 'class-validator';
+import { IsBoolean, IsInt, IsNotEmpty, IsOptional, IsString, Max, Min, MinLength, validateSync } from 'class-validator';
 
 // Lê o valor original (obj[key]): com enableImplicitConversion, `value` já
 // chegaria convertido por Boolean(), e Boolean('false') === true.
@@ -55,6 +55,22 @@ export class EnvironmentVariables {
   @IsInt()
   @Min(1)
   CSV_MAX_FILE_SIZE_MB: number = 5;
+
+  /** Segredo de assinatura dos tokens JWT (HS256). */
+  @IsString()
+  @MinLength(32)
+  JWT_SECRET: string;
+
+  /** Validade do token de acesso, em segundos (padrão: 8 h). */
+  @IsInt()
+  @Min(60)
+  JWT_EXPIRES_IN: number = 28800;
+
+  /** Senha inicial do usuário "admin", usada só se ele ainda não existir. */
+  @IsOptional()
+  @IsString()
+  @MinLength(8)
+  ADMIN_PASSWORD?: string;
 }
 
 export function validateEnv(config: Record<string, unknown>): EnvironmentVariables {

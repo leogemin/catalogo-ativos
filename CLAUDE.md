@@ -5,6 +5,9 @@
 > `backend/README.md`), `reference/legacy-prototype.html` (prototipo original
 > descrito abajo) y `docker-compose.yml` (PostgreSQL local). En el backend, los
 > ítems tienen `type` `ASSET` | `NON_OBJECT` y el "—" del dataset se guarda como `NULL`.
+> **Autenticación:** toda la API (salvo `POST /auth/login`) exige JWT. Los usuarios
+> solo tienen `username` + contraseña; solo el usuario `admin` (creado con
+> `ADMIN_PASSWORD`) gestiona usuarios. En el front, sin sesión se muestra `LoginPage`.
 
 Este documento captura todo el contexto de diseño y funcionalidad del prototipo
 `index.html` (HTML/CSS/JS puro, sin build, sin dependencias externas) para

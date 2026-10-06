@@ -5,8 +5,10 @@ import {
   BusinessRuleError,
   ConflictError,
   DomainError,
+  ForbiddenError,
   InvalidInputError,
   NotFoundError,
+  UnauthorizedError,
 } from '../errors/domain.errors.js';
 
 /** Formato único de erro da API (ver `ErrorResponseDto`). */
@@ -45,7 +47,11 @@ export class ApiExceptionFilter implements ExceptionFilter {
             ? HttpStatus.UNPROCESSABLE_ENTITY
             : error instanceof InvalidInputError
               ? HttpStatus.BAD_REQUEST
-              : HttpStatus.INTERNAL_SERVER_ERROR;
+              : error instanceof UnauthorizedError
+                ? HttpStatus.UNAUTHORIZED
+                : error instanceof ForbiddenError
+                  ? HttpStatus.FORBIDDEN
+                  : HttpStatus.INTERNAL_SERVER_ERROR;
     return { statusCode, code: error.code, message: error.message, details: error.details };
   }
 
