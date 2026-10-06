@@ -45,6 +45,16 @@ npm run lint      # oxlint
   `locales/es.json` (padrão) e `locales/pt.json`. O idioma é selecionável
   pela UI (Topbar) e persistido em `localStorage`.
 
+## Autenticação
+
+- Sem sessão, o app mostra só a tela de login (`pages/LoginPage.tsx`).
+- `auth/AuthProvider.tsx` guarda o token em `localStorage`, valida-o em
+  `GET /auth/me` ao abrir o app e expõe `useAuth()` (`status`, `user`, `login`, `logout`).
+- `services/apiClient.ts` envia `Authorization: Bearer <token>` em toda
+  requisição; qualquer 401 limpa o token e volta para o login.
+- Na Topbar, `UserMenu` mostra o usuário e o botão **Salir**. Para o `admin`,
+  aparece também **Usuarios**, que abre `UsersModal` (listar, cadastrar e remover usuários).
+
 ## Integração com a API
 
 - **Catálogo:** a Topbar tem um seletor com os catálogos da API; a escolha

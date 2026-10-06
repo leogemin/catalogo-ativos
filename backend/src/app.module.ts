@@ -3,7 +3,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { buildDataSourceOptions } from './config/database.config.js';
 import { type EnvironmentVariables, validateEnv } from './config/env.validation.js';
+import { AuthModule } from './modules/auth/auth.module.js';
 import { CatalogsModule } from './modules/catalogs/catalogs.module.js';
+import { UsersModule } from './modules/users/users.module.js';
 
 @Module({
   imports: [
@@ -22,6 +24,8 @@ import { CatalogsModule } from './modules/catalogs/catalogs.module.js';
           DB_MIGRATIONS_RUN: config.get('DB_MIGRATIONS_RUN', { infer: true }),
         }),
     }),
+    AuthModule,
+    UsersModule,
     CatalogsModule,
   ],
 })

@@ -31,3 +31,13 @@ export class BusinessRuleError extends DomainError {
 export class InvalidInputError extends DomainError {
   readonly code = 'INVALID_INPUT';
 }
+
+/** Credenciais ausentes, inválidas ou expiradas (HTTP 401). */
+export class UnauthorizedError extends DomainError {
+  readonly code = 'UNAUTHORIZED';
+}
+
+/** Autenticado, mas sem permissão para a operação (HTTP 403). */
+export class ForbiddenError extends DomainError {
+  readonly code = 'FORBIDDEN';
+}

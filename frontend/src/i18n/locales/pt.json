@@ -4,8 +4,13 @@
     "subtitle": "Consulta visual para inventário, classificação e identificação física",
     "badge": "Ciclo Consultoria · Parceria de Verdade"
   },
+  "sidebar": {
+    "open": "Abrir menu",
+    "close": "Fechar menu",
+    "manage": "Gestão"
+  },
   "catalog": {
-    "label": "Catálogo",
+    "label": "Projeto",
     "empty": "Nenhum catálogo cadastrado. Crie um pela API (POST /api/catalogs/import com um CSV) ou rode o seed do backend."
   },
   "hero": {
@@ -100,5 +105,40 @@
   "status": {
     "loading": "Carregando catálogo...",
     "error": "Não foi possível carregar o catálogo. Tente novamente."
+  },
+  "auth": {
+    "title": "Entrar",
+    "subtitle": "Acesse com seu usuário e senha para consultar o catálogo.",
+    "username": "Usuário",
+    "password": "Senha",
+    "submit": "Entrar",
+    "submitting": "Entrando...",
+    "requiredFields": "Informe usuário e senha.",
+    "invalidCredentials": "Usuário ou senha incorretos.",
+    "genericError": "Não foi possível entrar. Tente novamente.",
+    "checking": "Verificando sessão...",
+    "logout": "Sair"
+  },
+  "users": {
+    "manage": "Usuários",
+    "eyebrow": "Administração",
+    "title": "Usuários",
+    "newUser": "Novo usuário",
+    "usernamePlaceholder": "Ex. maria.perez",
+    "confirmPassword": "Confirmar senha",
+    "submit": "Criar usuário",
+    "usernameRule": "De 3 a 50 caracteres: letras, números, \".\", \"_\" ou \"-\".",
+    "passwordRule": "A senha deve ter pelo menos 8 caracteres.",
+    "passwordMismatch": "As senhas não coincidem.",
+    "created": "Usuário \"{{username}}\" criado.",
+    "duplicate": "Já existe um usuário com esse nome.",
+    "genericError": "Não foi possível concluir a operação. Tente novamente.",
+    "listTitle": "Usuários cadastrados",
+    "loading": "Carregando usuários...",
+    "loadError": "Não foi possível carregar os usuários.",
+    "createdAt": "Criado em {{date}}",
+    "adminBadge": "Administrador",
+    "delete": "Excluir",
+    "confirmDelete": "Excluir o usuário \"{{username}}\"? Ele perderá o acesso imediatamente."
   }
 }

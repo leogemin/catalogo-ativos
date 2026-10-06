@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../auth/useAuth';
 import { AssetDetailModal } from '../components/AssetDetailModal/AssetDetailModal';
 import { AssetFormModal } from '../components/AssetFormModal/AssetFormModal';
 import { AssetGrid } from '../components/AssetGrid/AssetGrid';
 import { AssetList } from '../components/AssetList/AssetList';
-import { CatalogSelector } from '../components/common/CatalogSelector';
 import { EmptyState } from '../components/common/EmptyState';
 import { StatusMessage } from '../components/common/StatusMessage';
 import { Footer } from '../components/Footer';
@@ -12,8 +12,9 @@ import { HeroSection } from '../components/HeroSection/HeroSection';
 import { NonObjectGrid } from '../components/NonObjectGrid/NonObjectGrid';
 import { Pagination } from '../components/Pagination/Pagination';
 import { ResultsSummary } from '../components/ResultsSummary';
+import { Sidebar } from '../components/Sidebar/Sidebar';
 import { Toolbar } from '../components/Toolbar/Toolbar';
-import { Topbar } from '../components/Topbar/Topbar';
+import { UsersModal } from '../components/UsersModal/UsersModal';
 import { useAssetMutations } from '../hooks/useAssetMutations';
 import { useCatalogFacets, useCatalogItems, useCatalogs } from '../hooks/useCatalogData';
 import { useDebouncedValue } from '../hooks/useDebouncedValue';
@@ -57,6 +58,8 @@ function storeCatalogId(catalogId: string): void {
 
 export function CatalogPage() {
   const { t } = useTranslation();
+  const { user, logout } = useAuth();
+  const [usersModalOpen, setUsersModalOpen] = useState(false);
 
   const catalogs = useCatalogs();
   const [preferredCatalogId, setPreferredCatalogId] = useState(readStoredCatalogId);
@@ -223,40 +226,45 @@ export function CatalogPage() {
 
   return (
     <>
-      <Topbar
-        actions={
-          <CatalogSelector catalogs={catalogList} selectedId={catalogId} onChange={handleCatalogChange} />
-        }
+      <Sidebar
+        catalogs={catalogList}
+        selectedCatalogId={catalogId}
+        onCatalogChange={handleCatalogChange}
+        user={user}
+        onManageUsers={() => setUsersModalOpen(true)}
+        onLogout={logout}
       />
-      <main className="shell">
-        <HeroSection
-          assetsCount={facets.data?.counts.assets ?? 0}
-          categoriesCount={facets.data?.categories.length ?? 0}
-          fixationsCount={facets.data?.fixations.length ?? 0}
-          nonObjectCount={facets.data?.counts.nonObjects ?? 0}
-        />
+      <div className={styles['catalog-page__content']}>
+        <main className="shell">
+          <HeroSection
+            assetsCount={facets.data?.counts.assets ?? 0}
+            categoriesCount={facets.data?.categories.length ?? 0}
+            fixationsCount={facets.data?.fixations.length ?? 0}
+            nonObjectCount={facets.data?.counts.nonObjects ?? 0}
+          />
 
-        <Toolbar
-          mode={mode}
-          onModeChange={handleModeChange}
-          assetFilters={assetFilters}
-          categories={facets.data?.categories ?? []}
-          fixations={facets.data?.fixations ?? []}
-          onAssetSearchChange={(search) => updateAssetFilters({ search })}
-          onCategoryChange={(category) => updateAssetFilters({ category })}
-          onFixationChange={(fixation) => updateAssetFilters({ fixation })}
-          onClearAssetFilters={() => updateAssetFilters(EMPTY_ASSET_FILTERS)}
-          nonObjectSearch={nonObjectSearch}
-          onNonObjectSearchChange={handleNonObjectSearchChange}
-          onClearNonObjectFilters={handleClearNonObjectFilters}
-          activeLetter={assetFilters.letter}
-          onLetterChange={(letter) => updateAssetFilters({ letter })}
-        />
+          <Toolbar
+            mode={mode}
+            onModeChange={handleModeChange}
+            assetFilters={assetFilters}
+            categories={facets.data?.categories ?? []}
+            fixations={facets.data?.fixations ?? []}
+            onAssetSearchChange={(search) => updateAssetFilters({ search })}
+            onCategoryChange={(category) => updateAssetFilters({ category })}
+            onFixationChange={(fixation) => updateAssetFilters({ fixation })}
+            onClearAssetFilters={() => updateAssetFilters(EMPTY_ASSET_FILTERS)}
+            nonObjectSearch={nonObjectSearch}
+            onNonObjectSearchChange={handleNonObjectSearchChange}
+            onClearNonObjectFilters={handleClearNonObjectFilters}
+            activeLetter={assetFilters.letter}
+            onLetterChange={(letter) => updateAssetFilters({ letter })}
+          />
 
-        {renderResults()}
+          {renderResults()}
 
-        <Footer />
-      </main>
+          <Footer />
+        </main>
+      </div>
 
       <AssetDetailModal asset={selectedAsset} onClose={() => setSelectedAsset(null)} onEdit={openEditModal} />
 
@@ -272,6 +280,8 @@ export function CatalogPage() {
           onClose={closeFormModal}
         />
       )}
+
+      {usersModalOpen && user?.isAdmin && <UsersModal onClose={() => setUsersModalOpen(false)} />}
     </>
   );
 }

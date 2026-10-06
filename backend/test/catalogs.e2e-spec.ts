@@ -1,21 +1,8 @@
-import { existsSync } from 'node:fs';
 import type { INestApplication } from '@nestjs/common';
-import { Test } from '@nestjs/testing';
 import request from 'supertest';
 import type { App } from 'supertest/types.js';
 import { DataSource } from 'typeorm';
-
-/**
- * Sobe a aplicação inteira contra um PostgreSQL real. Usa o banco de
- * DB_NAME_TEST (padrão: catalogo_ativos_test), que é limpo a cada teste.
- * Requer o Postgres do docker-compose (ou outro) rodando.
- */
-if (existsSync('.env')) process.loadEnvFile('.env');
-process.env.DB_NAME = process.env.DB_NAME_TEST ?? 'catalogo_ativos_test';
-process.env.DB_MIGRATIONS_RUN = 'true';
-
-const { AppModule } = await import('../src/app.module.js');
-const { configureApp } = await import('../src/app.setup.js');
+import { ADMIN_PASSWORD, createTestApp, login, prefix } from './e2e-setup.js';
 
 const SAMPLE_CSV =
   'tipo;categoria;especie;suplementos;fijacion\n' +
@@ -25,15 +12,12 @@ const SAMPLE_CSV =
 
 describe('Catálogos (e2e)', () => {
   let app: INestApplication<App>;
-  let http: ReturnType<typeof request>;
-  const prefix = () => `/${process.env.API_PREFIX ?? 'api'}`;
+  let http: ReturnType<typeof request.agent>;
 
   beforeAll(async () => {
-    const moduleRef = await Test.createTestingModule({ imports: [AppModule] }).compile();
-    app = moduleRef.createNestApplication();
-    configureApp(app);
-    await app.init();
-    http = request(app.getHttpServer());
+    app = await createTestApp();
+    // Todas as rotas de catálogo exigem token.
+    http = request.agent(app.getHttpServer()).auth(await login(app, 'admin', ADMIN_PASSWORD), { type: 'bearer' });
   });
 
   beforeEach(async () => {

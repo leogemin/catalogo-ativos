@@ -1,9 +1,8 @@
-@use '../../styles/breakpoints' as bp;
-
 .language-switcher {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
 
   &__label {
     font-size: 11px;
@@ -11,21 +10,17 @@
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    display: none;
-
-    @include bp.from-md {
-      display: inline;
-    }
   }
 
   &__select {
-    height: 36px;
+    height: 40px;
+    width: 100%;
     border: 1px solid #cfdcdf;
     border-radius: 10px;
     background: #fbfcfc;
     color: var(--azul-profundo);
     padding: 0 8px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
     outline: none;
 
