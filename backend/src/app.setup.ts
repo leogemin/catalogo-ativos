@@ -36,8 +36,11 @@ export function setupSwagger(app: INestApplication): string {
       .setTitle('Catálogo de Ativos API')
       .setDescription('CRUD de catálogos e de seus itens (ativos e bienes no objeto), com importação/exportação CSV.')
       .setVersion('1.0')
+      .addBearerAuth()
       .build(),
   );
-  SwaggerModule.setup(path, app, document);
+  // Toda rota exige token (exceto POST /auth/login); o "Authorize" do Swagger aplica a todas.
+  document.security = [{ bearer: [] }];
+  SwaggerModule.setup(path, app, document, { swaggerOptions: { persistAuthorization: true } });
   return path;
 }

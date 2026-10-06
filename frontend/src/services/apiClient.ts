@@ -1,3 +1,5 @@
+import { clearToken, notifyUnauthorized, readToken } from './tokenStorage';
+
 // Em dev o Vite faz proxy de /api para o backend (ver vite.config.ts); em
 // produção, aponte VITE_API_BASE_URL para a URL pública da API.
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/+$/, '');
@@ -36,12 +38,17 @@ export async function apiRequest<T>(path: string, { method = 'GET', query, body,
     if (value !== undefined && value !== null && value !== '') url.searchParams.set(key, String(value));
   }
 
+  const token = readToken();
+  const headers: Record<string, string> = {};
+  if (body !== undefined) headers['Content-Type'] = 'application/json';
+  if (token) headers.Authorization = `Bearer ${token}`;
+
   let response: Response;
   try {
     response = await fetch(url, {
       method,
       signal,
-      headers: body === undefined ? undefined : { 'Content-Type': 'application/json' },
+      headers,
       body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch (error) {
@@ -53,6 +60,11 @@ export async function apiRequest<T>(path: string, { method = 'GET', query, body,
 
   const payload: unknown = await response.json().catch(() => null);
   if (!response.ok) {
+    // Token expirado/revogado: encerra a sessão e volta para o login.
+    if (response.status === 401 && token) {
+      clearToken();
+      notifyUnauthorized();
+    }
     const error = (payload ?? {}) as { code?: string; message?: string; details?: unknown };
     throw new ApiError(response.status, error.code ?? 'HTTP_ERROR', error.message ?? response.statusText, error.details);
   }

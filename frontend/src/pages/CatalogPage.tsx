@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../auth/useAuth';
 import { AssetDetailModal } from '../components/AssetDetailModal/AssetDetailModal';
 import { AssetFormModal } from '../components/AssetFormModal/AssetFormModal';
 import { AssetGrid } from '../components/AssetGrid/AssetGrid';
@@ -14,6 +15,8 @@ import { Pagination } from '../components/Pagination/Pagination';
 import { ResultsSummary } from '../components/ResultsSummary';
 import { Toolbar } from '../components/Toolbar/Toolbar';
 import { Topbar } from '../components/Topbar/Topbar';
+import { UserMenu } from '../components/UserMenu/UserMenu';
+import { UsersModal } from '../components/UsersModal/UsersModal';
 import { useAssetMutations } from '../hooks/useAssetMutations';
 import { useCatalogFacets, useCatalogItems, useCatalogs } from '../hooks/useCatalogData';
 import { useDebouncedValue } from '../hooks/useDebouncedValue';
@@ -57,6 +60,8 @@ function storeCatalogId(catalogId: string): void {
 
 export function CatalogPage() {
   const { t } = useTranslation();
+  const { user, logout } = useAuth();
+  const [usersModalOpen, setUsersModalOpen] = useState(false);
 
   const catalogs = useCatalogs();
   const [preferredCatalogId, setPreferredCatalogId] = useState(readStoredCatalogId);
@@ -225,7 +230,10 @@ export function CatalogPage() {
     <>
       <Topbar
         actions={
-          <CatalogSelector catalogs={catalogList} selectedId={catalogId} onChange={handleCatalogChange} />
+          <>
+            <CatalogSelector catalogs={catalogList} selectedId={catalogId} onChange={handleCatalogChange} />
+            {user && <UserMenu user={user} onManageUsers={() => setUsersModalOpen(true)} onLogout={logout} />}
+          </>
         }
       />
       <main className="shell">
@@ -272,6 +280,8 @@ export function CatalogPage() {
           onClose={closeFormModal}
         />
       )}
+
+      {usersModalOpen && user?.isAdmin && <UsersModal onClose={() => setUsersModalOpen(false)} />}
     </>
   );
 }

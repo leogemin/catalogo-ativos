@@ -2,6 +2,7 @@ import type { DataSourceOptions } from 'typeorm';
 import { migrations } from '../database/migrations/index.js';
 import { CatalogItem } from '../modules/catalogs/domain/catalog-item.entity.js';
 import { Catalog } from '../modules/catalogs/domain/catalog.entity.js';
+import { User } from '../modules/users/domain/user.entity.js';
 import type { EnvironmentVariables } from './env.validation.js';
 
 export type DatabaseEnv = Pick<
@@ -20,7 +21,7 @@ export function buildDataSourceOptions(env: DatabaseEnv): DataSourceOptions {
     database: env.DB_NAME,
     ssl: env.DB_SSL,
     logging: env.DB_LOGGING,
-    entities: [Catalog, CatalogItem],
+    entities: [Catalog, CatalogItem, User],
     migrations,
     migrationsRun: env.DB_MIGRATIONS_RUN,
     // O schema é versionado só por migrations; nunca sincronizar automático.

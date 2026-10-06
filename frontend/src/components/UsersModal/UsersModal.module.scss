@@ -1,0 +1,233 @@
+@use '../../styles/breakpoints' as bp;
+
+.users-modal {
+  &__eyebrow {
+    color: var(--oro-claro);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 4px 0 0;
+    font-size: 19px;
+    color: #fff;
+
+    @include bp.from-md {
+      font-size: 23px;
+    }
+  }
+
+  &__section-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--azul-profundo);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+
+  &__form {
+    display: grid;
+    gap: 12px;
+    padding-bottom: 20px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    @include bp.from-sm {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__field {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+
+    label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input {
+      width: 100%;
+      height: 42px;
+      border: 1px solid #cfdcdf;
+      border-radius: 11px;
+      background: #fbfcfc;
+      color: var(--texto);
+      padding: 0 12px;
+      font-size: 14px;
+      outline: none;
+
+      &:focus {
+        border-color: var(--azul);
+        box-shadow: 0 0 0 3px rgba(53, 101, 121, 0.12);
+      }
+
+      &[aria-invalid='true'] {
+        border-color: #c14343;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__error {
+    font-size: 11px;
+    color: #c14343;
+    font-weight: 700;
+  }
+
+  &__feedback {
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+
+    &--error {
+      background: #fdecec;
+      border: 1px solid #f3c9c9;
+      color: #92312f;
+    }
+
+    &--success {
+      background: #f7f1e2;
+      border: 1px solid #ead9ad;
+      color: #7a5a12;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__submit {
+    height: 42px;
+    width: 100%;
+    border: 0;
+    border-radius: 11px;
+    background: var(--azul);
+    color: #fff;
+    font-weight: 700;
+    padding: 0 22px;
+
+    @include bp.from-sm {
+      width: auto;
+    }
+
+    &:hover:not(:disabled) {
+      background: var(--azul-oscuro);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+  }
+
+  &__empty {
+    border: 1px dashed #cfdcdf;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--linea);
+    border-radius: 12px;
+    padding: 10px 12px;
+    background: #fbfcfc;
+  }
+
+  &__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #eaf1f3;
+    color: var(--azul-profundo);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  &__item-main {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  &__username {
+    font-weight: 700;
+    color: var(--azul-profundo);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  &__badge {
+    background: #f7f1e2;
+    color: #7a5a12;
+    border: 1px solid #ead9ad;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  &__delete {
+    height: 32px;
+    border: 1px solid #f3c9c9;
+    border-radius: 9px;
+    background: #fff;
+    color: #92312f;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 10px;
+
+    &:hover:not(:disabled) {
+      background: #fdecec;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+}

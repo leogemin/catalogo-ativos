@@ -100,5 +100,40 @@
   "status": {
     "loading": "Cargando catálogo...",
     "error": "No se pudo cargar el catálogo. Intente nuevamente."
+  },
+  "auth": {
+    "title": "Iniciar sesión",
+    "subtitle": "Ingrese con su usuario y contraseña para consultar el catálogo.",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "submit": "Ingresar",
+    "submitting": "Ingresando...",
+    "requiredFields": "Ingrese usuario y contraseña.",
+    "invalidCredentials": "Usuario o contraseña incorrectos.",
+    "genericError": "No se pudo iniciar sesión. Intente nuevamente.",
+    "checking": "Verificando sesión...",
+    "logout": "Salir"
+  },
+  "users": {
+    "manage": "Usuarios",
+    "eyebrow": "Administración",
+    "title": "Usuarios",
+    "newUser": "Nuevo usuario",
+    "usernamePlaceholder": "Ej. maria.perez",
+    "confirmPassword": "Confirmar contraseña",
+    "submit": "Crear usuario",
+    "usernameRule": "De 3 a 50 caracteres: letras, números, \".\", \"_\" o \"-\".",
+    "passwordRule": "La contraseña debe tener al menos 8 caracteres.",
+    "passwordMismatch": "Las contraseñas no coinciden.",
+    "created": "Usuario \"{{username}}\" creado.",
+    "duplicate": "Ya existe un usuario con ese nombre.",
+    "genericError": "No se pudo completar la operación. Intente nuevamente.",
+    "listTitle": "Usuarios registrados",
+    "loading": "Cargando usuarios...",
+    "loadError": "No se pudieron cargar los usuarios.",
+    "createdAt": "Creado el {{date}}",
+    "adminBadge": "Administrador",
+    "delete": "Eliminar",
+    "confirmDelete": "¿Eliminar al usuario \"{{username}}\"? Perderá el acceso de inmediato."
   }
 }
