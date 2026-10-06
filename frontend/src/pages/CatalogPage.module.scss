@@ -1,4 +1,13 @@
+@use '../styles/breakpoints' as bp;
+
 .catalog-page {
+  // Reserva o espaço da sidebar fixa no desktop.
+  &__content {
+    @include bp.from-md {
+      margin-left: 264px;
+    }
+  }
+
   &__results {
     transition: opacity 0.15s ease;
   }

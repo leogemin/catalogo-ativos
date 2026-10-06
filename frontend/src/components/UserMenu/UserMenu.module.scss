@@ -1,9 +1,7 @@
-@use '../../styles/breakpoints' as bp;
-
 .user-menu {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 10px;
 
   &__identity {
     display: flex;
@@ -27,22 +25,17 @@
   }
 
   &__name {
-    display: none;
-    max-width: 140px;
+    flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 13px;
     font-weight: 700;
     color: var(--azul-profundo);
-
-    @include bp.from-lg {
-      display: inline;
-    }
   }
 
   &__btn {
-    height: 36px;
+    height: 38px;
     border: 1px solid #cfdcdf;
     border-radius: 10px;
     background: #fbfcfc;

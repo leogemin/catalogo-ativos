@@ -1,0 +1,150 @@
+@use '../../styles/breakpoints' as bp;
+
+$sidebar-width: 264px;
+
+.mobile-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--linea);
+
+  @include bp.from-md {
+    display: none;
+  }
+
+  &__logo {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+  &__toggle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #cfdcdf;
+    border-radius: 10px;
+    background: #fbfcfc;
+    color: var(--azul-profundo);
+    font-size: 20px;
+    line-height: 1;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(23, 57, 69, 0.45);
+
+  @include bp.from-md {
+    display: none;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  width: min(86vw, $sidebar-width);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 18px 16px;
+  overflow-y: auto;
+  background: var(--blanco);
+  border-right: 1px solid var(--linea);
+  box-shadow: var(--sombra);
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition:
+    transform 0.2s ease,
+    visibility 0.2s;
+
+  &--open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  @include bp.from-md {
+    width: $sidebar-width;
+    transform: none;
+    visibility: visible;
+    box-shadow: none;
+    padding: 22px 18px;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  &__logo {
+    height: 52px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  &__close {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #cfdcdf;
+    border-radius: 10px;
+    background: #fbfcfc;
+    color: var(--azul-profundo);
+    font-size: 22px;
+    line-height: 1;
+
+    @include bp.from-md {
+      display: none;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__heading {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__action {
+    height: 40px;
+    border: 1px solid #cfdcdf;
+    border-radius: 10px;
+    background: #fbfcfc;
+    color: var(--azul-profundo);
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+
+    &:hover {
+      border-color: var(--azul);
+      background: #eaf1f3;
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--linea);
+  }
+}

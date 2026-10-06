@@ -4,11 +4,10 @@ import styles from './UserMenu.module.scss';
 
 interface UserMenuProps {
   user: AuthUser;
-  onManageUsers: () => void;
   onLogout: () => void;
 }
 
-export function UserMenu({ user, onManageUsers, onLogout }: UserMenuProps) {
+export function UserMenu({ user, onLogout }: UserMenuProps) {
   const { t } = useTranslation();
 
   return (
@@ -19,11 +18,6 @@ export function UserMenu({ user, onManageUsers, onLogout }: UserMenuProps) {
         </span>
         <span className={styles['user-menu__name']}>{user.username}</span>
       </div>
-      {user.isAdmin && (
-        <button type="button" className={styles['user-menu__btn']} onClick={onManageUsers}>
-          {t('users.manage')}
-        </button>
-      )}
       <button type="button" className={styles['user-menu__btn']} onClick={onLogout}>
         {t('auth.logout')}
       </button>

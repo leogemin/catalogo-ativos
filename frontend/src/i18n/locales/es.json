@@ -4,8 +4,13 @@
     "subtitle": "Consulta visual para inventario, clasificación e identificación física",
     "badge": "Ciclo Consultoría · Parceria de Verdade"
   },
+  "sidebar": {
+    "open": "Abrir menú",
+    "close": "Cerrar menú",
+    "manage": "Gestión"
+  },
   "catalog": {
-    "label": "Catálogo",
+    "label": "Proyecto",
     "empty": "No hay catálogos registrados. Cree uno por la API (POST /api/catalogs/import con un CSV) o ejecute el seed del backend."
   },
   "hero": {
