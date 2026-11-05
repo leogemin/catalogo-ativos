@@ -26,8 +26,8 @@
     height: 34px;
     border: 0;
     border-radius: 9px;
-    background: var(--oro);
-    color: #fff;
+    background: var(--azul);
+    color: var(--blanco);
     font-weight: 700;
     font-size: 13px;
     padding: 0 12px;
@@ -64,7 +64,7 @@
   &__view-btn {
     height: 34px;
     border: 1px solid var(--linea);
-    background: #fff;
+    background: var(--blanco);
     color: var(--azul);
     border-radius: 9px;
     padding: 0 10px;
@@ -79,7 +79,7 @@
 
   &__view-btn--active {
     background: var(--azul);
-    color: #fff;
+    color: var(--blanco);
     border-color: var(--azul);
   }
 }

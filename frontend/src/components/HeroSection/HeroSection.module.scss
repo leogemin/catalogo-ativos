@@ -39,12 +39,12 @@
       border-radius: 50%;
       right: -70px;
       top: -85px;
-      border: 38px solid rgba(184, 145, 54, 0.25);
+      border: 38px solid rgba(178, 144, 58, 0.25);
     }
   }
 
   &__eyebrow {
-    color: #e6d49c;
+    color: var(--oro-linea);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -71,7 +71,7 @@
     font-size: 13px;
     line-height: 1.5;
     margin: 0;
-    color: #e7eff2;
+    color: var(--azul-suave);
     max-width: 800px;
 
     @include bp.from-md {
@@ -94,7 +94,7 @@
     border: 1px solid var(--linea);
     border-radius: 14px;
     padding: 13px 14px;
-    box-shadow: 0 7px 22px rgba(28, 65, 80, 0.06);
+    box-shadow: 0 7px 22px rgba(27, 26, 23, 0.06);
 
     @include bp.from-md {
       border-radius: 16px;

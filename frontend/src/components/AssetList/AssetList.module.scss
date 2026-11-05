@@ -1,7 +1,7 @@
 @use '../../styles/breakpoints' as bp;
 
 .asset-list {
-  background: #fff;
+  background: var(--blanco);
   border: 1px solid var(--linea);
   border-radius: 15px;
   overflow: hidden;
@@ -11,7 +11,7 @@
     grid-template-columns: 1.6fr 1fr;
     gap: 10px;
     padding: 12px 14px;
-    border-bottom: 1px solid #edf1f2;
+    border-bottom: 1px solid var(--linea);
     align-items: center;
     width: 100%;
     text-align: left;
@@ -47,12 +47,12 @@
   }
 
   &__row--body:hover {
-    background: #f8fafb;
+    background: var(--superficie-alt);
   }
 
   &__row--head {
-    background: #edf3f5;
-    color: #536a74;
+    background: var(--azul-suave);
+    color: var(--muted);
     font-size: 10px;
     font-weight: 800;
     text-transform: uppercase;

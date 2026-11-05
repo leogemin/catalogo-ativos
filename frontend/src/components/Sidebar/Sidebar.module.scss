@@ -26,9 +26,9 @@ $sidebar-width: 264px;
   &__toggle {
     width: 40px;
     height: 40px;
-    border: 1px solid #cfdcdf;
+    border: 1px solid var(--borde-control);
     border-radius: 10px;
-    background: #fbfcfc;
+    background: var(--campo);
     color: var(--azul-profundo);
     font-size: 20px;
     line-height: 1;
@@ -39,7 +39,7 @@ $sidebar-width: 264px;
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: rgba(23, 57, 69, 0.45);
+  background: var(--scrim);
 
   @include bp.from-md {
     display: none;
@@ -98,9 +98,9 @@ $sidebar-width: 264px;
   &__close {
     width: 36px;
     height: 36px;
-    border: 1px solid #cfdcdf;
+    border: 1px solid var(--borde-control);
     border-radius: 10px;
-    background: #fbfcfc;
+    background: var(--campo);
     color: var(--azul-profundo);
     font-size: 22px;
     line-height: 1;
@@ -127,9 +127,9 @@ $sidebar-width: 264px;
 
   &__action {
     height: 40px;
-    border: 1px solid #cfdcdf;
+    border: 1px solid var(--borde-control);
     border-radius: 10px;
-    background: #fbfcfc;
+    background: var(--campo);
     color: var(--azul-profundo);
     padding: 0 12px;
     font-size: 13px;
@@ -138,7 +138,7 @@ $sidebar-width: 264px;
 
     &:hover {
       border-color: var(--azul);
-      background: #eaf1f3;
+      background: var(--azul-suave);
     }
   }
 

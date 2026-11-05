@@ -3,7 +3,7 @@
 .asset-detail {
   &__category {
     font-size: 11px;
-    color: #e7d79f;
+    color: var(--oro-linea);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -12,7 +12,7 @@
   &__name {
     margin: 6px 0 0;
     font-size: 19px;
-    color: #fff;
+    color: var(--blanco);
 
     @include bp.from-md {
       font-size: 23px;
@@ -35,7 +35,7 @@
     border: 0;
     border-radius: 11px;
     background: var(--azul);
-    color: #fff;
+    color: var(--blanco);
     font-weight: 700;
     font-size: 14px;
 

@@ -4,7 +4,7 @@
   &__title {
     margin: 0;
     font-size: 19px;
-    color: #fff;
+    color: var(--blanco);
 
     @include bp.from-md {
       font-size: 23px;
@@ -39,9 +39,9 @@
     input,
     textarea {
       width: 100%;
-      border: 1px solid #cfdcdf;
+      border: 1px solid var(--borde-control);
       border-radius: 11px;
-      background: #fbfcfc;
+      background: var(--campo);
       color: var(--texto);
       padding: 10px 12px;
       font-size: 14px;
@@ -50,11 +50,11 @@
 
       &:focus {
         border-color: var(--azul);
-        box-shadow: 0 0 0 3px rgba(53, 101, 121, 0.12);
+        box-shadow: var(--foco);
       }
 
       &[aria-invalid='true'] {
-        border-color: #c14343;
+        border-color: var(--peligro);
       }
 
       &:disabled {
@@ -75,14 +75,14 @@
 
   &__error {
     font-size: 11px;
-    color: #c14343;
+    color: var(--peligro);
     font-weight: 700;
   }
 
   &__submit-error {
-    background: #fdecec;
-    border: 1px solid #f3c9c9;
-    color: #92312f;
+    background: var(--peligro-suave);
+    border: 1px solid var(--peligro-linea);
+    color: var(--peligro);
     border-radius: 10px;
     padding: 10px 12px;
     font-size: 13px;
@@ -103,7 +103,7 @@
     height: 44px;
     border: 1px solid var(--linea);
     border-radius: 11px;
-    background: #fff;
+    background: var(--blanco);
     color: var(--azul-profundo);
     font-weight: 700;
     padding: 0 18px;
@@ -118,7 +118,7 @@
     border: 0;
     border-radius: 11px;
     background: var(--azul);
-    color: #fff;
+    color: var(--blanco);
     font-weight: 700;
     padding: 0 22px;
 
