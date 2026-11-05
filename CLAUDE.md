@@ -123,7 +123,7 @@ De arriba hacia abajo:
      buscador + botón limpiar): placeholder "Buscar bien no objeto...".
    - **Barra alfabética**: botones "Todos" + A–Z para filtrar por letra
      inicial de la especie (o del nombre del bien no objeto). El botón
-     activo se resalta en dorado.
+     activo se resalta en azul (acento).
 
 4. **Summary row**: contador de resultados (ej. "**936** especies
    encontradas") a la izquierda + selector de vista (▦ Tarjetas / ☰ Lista)
@@ -161,18 +161,26 @@ De arriba hacia abajo:
 
 ## 3. Design tokens (paleta y estilo)
 
+Paleta unificada con la app **Ciclo Inventory Manager** (tema claro). Fuente de
+verdad: `frontend/src/styles/_tokens.scss`. Nunca usar colores hardcodeados en
+componentes; usar tokens.
+
 ```css
---azul:          #356579
---azul-oscuro:   #244b5c
---azul-profundo: #173945
---oro:           #b89136
---oro-claro:     #d4b76f
---fondo:         #f4f7f8
---blanco:        #ffffff
---texto:         #18303b
---muted:         #6c7c84
---linea:         #dfe7ea
---sombra:        0 12px 30px rgba(28,65,80,.10)
+--azul:          #004d6e  /* acento: acciones, selección, foco, links */
+--azul-oscuro:   #003a54  /* hover / pressed */
+--azul-profundo: #002f44  /* superficies de marca (sidebar, headers) */
+--azul-suave:    #ddedf4
+--oro:           #b2903a  /* dorado del logo: solo marca, nunca acción/estado */
+--oro-claro:     #cdb06a  /* dorado sobre azul profundo */
+--oro-texto:     #74621c  /* dorado para texto sobre fondo claro (AA) */
+--oro-suave:     #f5eed8
+--fondo:         #f3f2ee  /* neutros grafito cálido */
+--texto:         #1b1a17
+--muted:         #5b5850
+--linea:         #e2dfd8
+--borde-control: #858177  /* contorno de controles (3:1) */
+--peligro:       #950631
+--sombra:        0 12px 30px rgba(27,26,23,.10)
 --radius:        16px
 ```
 
@@ -180,10 +188,10 @@ De arriba hacia abajo:
 - Identidad visual: azul institucional profundo + acentos dorados
   (elegante/corporativo, "consultoría"). Bordes redondeados generosos
   (12–20px), sombras suaves, mucho whitespace.
-- Badges de categoría: fondo azul muy claro (`#eaf1f3`), texto azul
+- Badges de categoría: fondo azul muy claro (`--azul-suave`), texto azul
   profundo, pill shape, uppercase, letter-spacing.
-- Resaltado de búsqueda: `<mark>` con fondo amarillo pálido (`#f4df9a`).
-- El "meeting-badge" del header usa tonos dorados (`#f7f1e2` fondo, `#7a5a12`
+- Resaltado de búsqueda: `<mark>` con `--resaltado`.
+- El "meeting-badge" del header usa tonos dorados (`--oro-suave` fondo, `--oro-texto`
   texto).
 
 ## 4. Breakpoints responsive
