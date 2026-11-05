@@ -3,7 +3,7 @@
 .modal-shell {
   position: fixed;
   inset: 0;
-  background: rgba(10, 31, 39, 0.58);
+  background: var(--scrim);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
   }
 
   &__box {
-    background: #fff;
+    background: var(--blanco);
     width: min(760px, 96vw);
     border-radius: 16px;
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
@@ -31,7 +31,7 @@
 
   &__head {
     background: linear-gradient(135deg, var(--azul-profundo), var(--azul));
-    color: #fff;
+    color: var(--blanco);
     padding: 18px 18px;
     display: flex;
     align-items: flex-start;
@@ -47,7 +47,7 @@
   &__close {
     background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.24);
-    color: #fff;
+    color: var(--blanco);
     width: 34px;
     height: 34px;
     border-radius: 10px;

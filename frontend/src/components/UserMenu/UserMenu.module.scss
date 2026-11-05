@@ -36,9 +36,9 @@
 
   &__btn {
     height: 38px;
-    border: 1px solid #cfdcdf;
+    border: 1px solid var(--borde-control);
     border-radius: 10px;
-    background: #fbfcfc;
+    background: var(--campo);
     color: var(--azul-profundo);
     padding: 0 10px;
     font-size: 12px;
@@ -47,7 +47,7 @@
 
     &:hover {
       border-color: var(--azul);
-      background: #eaf1f3;
+      background: var(--azul-suave);
     }
   }
 }

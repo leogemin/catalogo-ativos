@@ -15,9 +15,9 @@
   &__select {
     height: 40px;
     width: 100%;
-    border: 1px solid #cfdcdf;
+    border: 1px solid var(--borde-control);
     border-radius: 10px;
-    background: #fbfcfc;
+    background: var(--campo);
     color: var(--azul-profundo);
     padding: 0 8px;
     font-size: 13px;
@@ -26,7 +26,7 @@
 
     &:focus {
       border-color: var(--azul);
-      box-shadow: 0 0 0 3px rgba(53, 101, 121, 0.12);
+      box-shadow: var(--foco);
     }
   }
 }

@@ -43,7 +43,7 @@
 
   &__hero {
     background: linear-gradient(135deg, var(--azul-profundo), var(--azul));
-    color: #fff;
+    color: var(--blanco);
     padding: 22px 20px;
     position: relative;
     overflow: hidden;
@@ -63,12 +63,12 @@
       border-radius: 50%;
       right: -70px;
       top: -85px;
-      border: 38px solid rgba(184, 145, 54, 0.25);
+      border: 38px solid rgba(178, 144, 58, 0.25);
     }
   }
 
   &__eyebrow {
-    color: #e6d49c;
+    color: var(--oro-linea);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -112,9 +112,9 @@
       display: inline-block;
       align-self: flex-start;
       margin-top: 28px;
-      background: rgba(247, 241, 226, 0.12);
-      color: #f1e3b8;
-      border: 1px solid rgba(212, 183, 111, 0.45);
+      background: rgba(245, 238, 216, 0.12);
+      color: var(--oro-linea);
+      border: 1px solid rgba(205, 176, 106, 0.45);
       padding: 9px 12px;
       border-radius: 999px;
       font-size: 12px;
@@ -179,9 +179,9 @@
     input {
       width: 100%;
       height: 44px;
-      border: 1px solid #cfdcdf;
+      border: 1px solid var(--borde-control);
       border-radius: 11px;
-      background: #fbfcfc;
+      background: var(--campo);
       color: var(--texto);
       padding: 0 12px;
       font-size: 14px;
@@ -189,7 +189,7 @@
 
       &:focus {
         border-color: var(--azul);
-        box-shadow: 0 0 0 3px rgba(53, 101, 121, 0.12);
+        box-shadow: var(--foco);
       }
 
       &:disabled {
@@ -199,9 +199,9 @@
   }
 
   &__error {
-    background: #fdecec;
-    border: 1px solid #f3c9c9;
-    color: #92312f;
+    background: var(--peligro-suave);
+    border: 1px solid var(--peligro-linea);
+    color: var(--peligro);
     border-radius: 10px;
     padding: 10px 12px;
     font-size: 13px;
@@ -213,7 +213,7 @@
     border: 0;
     border-radius: 11px;
     background: var(--azul);
-    color: #fff;
+    color: var(--blanco);
     font-weight: 700;
     font-size: 14px;
 

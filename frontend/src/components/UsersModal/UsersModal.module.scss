@@ -12,7 +12,7 @@
   &__title {
     margin: 4px 0 0;
     font-size: 19px;
-    color: #fff;
+    color: var(--blanco);
 
     @include bp.from-md {
       font-size: 23px;
@@ -62,9 +62,9 @@
     input {
       width: 100%;
       height: 42px;
-      border: 1px solid #cfdcdf;
+      border: 1px solid var(--borde-control);
       border-radius: 11px;
-      background: #fbfcfc;
+      background: var(--campo);
       color: var(--texto);
       padding: 0 12px;
       font-size: 14px;
@@ -72,11 +72,11 @@
 
       &:focus {
         border-color: var(--azul);
-        box-shadow: 0 0 0 3px rgba(53, 101, 121, 0.12);
+        box-shadow: var(--foco);
       }
 
       &[aria-invalid='true'] {
-        border-color: #c14343;
+        border-color: var(--peligro);
       }
 
       &:disabled {
@@ -87,7 +87,7 @@
 
   &__error {
     font-size: 11px;
-    color: #c14343;
+    color: var(--peligro);
     font-weight: 700;
   }
 
@@ -97,15 +97,15 @@
     font-size: 13px;
 
     &--error {
-      background: #fdecec;
-      border: 1px solid #f3c9c9;
-      color: #92312f;
+      background: var(--peligro-suave);
+      border: 1px solid var(--peligro-linea);
+      color: var(--peligro);
     }
 
     &--success {
-      background: #f7f1e2;
-      border: 1px solid #ead9ad;
-      color: #7a5a12;
+      background: var(--oro-suave);
+      border: 1px solid var(--oro-linea);
+      color: var(--oro-texto);
     }
   }
 
@@ -120,7 +120,7 @@
     border: 0;
     border-radius: 11px;
     background: var(--azul);
-    color: #fff;
+    color: var(--blanco);
     font-weight: 700;
     padding: 0 22px;
 
@@ -139,7 +139,7 @@
   }
 
   &__empty {
-    border: 1px dashed #cfdcdf;
+    border: 1px dashed var(--borde-control);
     border-radius: 12px;
     padding: 18px;
     text-align: center;
@@ -162,14 +162,14 @@
     border: 1px solid var(--linea);
     border-radius: 12px;
     padding: 10px 12px;
-    background: #fbfcfc;
+    background: var(--campo);
   }
 
   &__avatar {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: #eaf1f3;
+    background: var(--azul-suave);
     color: var(--azul-profundo);
     display: inline-flex;
     align-items: center;
@@ -199,9 +199,9 @@
   }
 
   &__badge {
-    background: #f7f1e2;
-    color: #7a5a12;
-    border: 1px solid #ead9ad;
+    background: var(--oro-suave);
+    color: var(--oro-texto);
+    border: 1px solid var(--oro-linea);
     padding: 5px 10px;
     border-radius: 999px;
     font-size: 11px;
@@ -213,16 +213,16 @@
 
   &__delete {
     height: 32px;
-    border: 1px solid #f3c9c9;
+    border: 1px solid var(--peligro-linea);
     border-radius: 9px;
-    background: #fff;
-    color: #92312f;
+    background: var(--blanco);
+    color: var(--peligro);
     font-size: 12px;
     font-weight: 700;
     padding: 0 10px;
 
     &:hover:not(:disabled) {
-      background: #fdecec;
+      background: var(--peligro-suave);
     }
 
     &:disabled {

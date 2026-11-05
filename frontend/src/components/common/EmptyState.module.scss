@@ -1,8 +1,8 @@
 @use '../../styles/breakpoints' as bp;
 
 .empty-state {
-  background: #fff;
-  border: 1px dashed #cbd9dd;
+  background: var(--blanco);
+  border: 1px dashed var(--linea-fuerte);
   border-radius: 15px;
   padding: 28px 20px;
   text-align: center;

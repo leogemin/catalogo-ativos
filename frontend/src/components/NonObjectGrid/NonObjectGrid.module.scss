@@ -19,7 +19,7 @@
   }
 
   &__item {
-    background: #fff;
+    background: var(--blanco);
     border: 1px solid var(--linea);
     border-left: 4px solid var(--oro);
     border-radius: 12px;

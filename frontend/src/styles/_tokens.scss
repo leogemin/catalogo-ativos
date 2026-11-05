@@ -1,14 +1,40 @@
+// Ciclo design tokens — aligned with the Ciclo Inventory Manager app palette
+// (ciclo-inv-manager/src/ui/tokens.ts, light theme).
+// Brand: blue #004D6E (actions, selection, focus) · gold #B2903A (brand highlight only).
 :root {
-  --azul: #356579;
-  --azul-oscuro: #244b5c;
-  --azul-profundo: #173945;
-  --oro: #b89136;
-  --oro-claro: #d4b76f;
-  --fondo: #f4f7f8;
+  // Brand
+  --azul: #004d6e; // accent: primary actions, selected states, links
+  --azul-oscuro: #003a54; // accent pressed / hover
+  --azul-profundo: #002f44; // deep brand surfaces (sidebar, modal headers)
+  --azul-suave: #ddedf4; // tinted accent background (hover, highlights)
+  --oro: #b2903a; // logo gold: brand marks on dark surfaces
+  --oro-claro: #cdb06a; // gold on deep blue surfaces
+  --oro-texto: #74621c; // gold for text/icons on light surfaces (AA)
+  --oro-suave: #f5eed8; // tinted gold background
+  --oro-linea: #e8ddb8; // borders around gold tints
+  --resaltado: #f0e2b6; // search highlight (<mark>)
+
+  // Neutrals (warm graphite "stone")
+  --fondo: #f3f2ee;
   --blanco: #ffffff;
-  --texto: #18303b;
-  --muted: #6c7c84;
-  --linea: #dfe7ea;
-  --sombra: 0 12px 30px rgba(28, 65, 80, 0.1);
+  --superficie-alt: #f9f8f5; // zebra rows, subtle panels
+  --campo: #fbfaf8; // form field background
+  --texto: #1b1a17;
+  --texto-fuerte: #2e2d29;
+  --muted: #5b5850;
+  --muted-claro: #858177; // placeholders, disabled meta
+  --linea: #e2dfd8; // hairline dividers
+  --linea-fuerte: #cfcbc2; // dashed/empty-state borders
+  --borde-control: #858177; // outlines of interactive controls (3:1)
+
+  // Feedback
+  --peligro: #950631;
+  --peligro-suave: #fce4ea;
+  --peligro-linea: #f5c2cf;
+
+  // Effects
+  --foco: 0 0 0 3px rgba(0, 77, 110, 0.16);
+  --scrim: rgba(18, 18, 16, 0.5);
+  --sombra: 0 12px 30px rgba(27, 26, 23, 0.1);
   --radius: 16px;
 }
